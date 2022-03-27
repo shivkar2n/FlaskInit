@@ -2,7 +2,7 @@
 Simple script for creating a flask application structure
 
 ## Project Structure
-
+```
 ├── venv/
 ├── testapp/
 │   ├── static/
@@ -18,3 +18,4 @@ Simple script for creating a flask application structure
 ├── name.txt
 ├── .gitignore
 └── requirements.txt
+```
