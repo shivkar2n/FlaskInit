@@ -2,6 +2,7 @@
 
 echo "Enter flaskapp name:"
 read projectName
+echo $projectName > name.txt
 
 # Initialize virtual environment
 python3 -m venv venv
@@ -30,6 +31,12 @@ touch $projectName/templates/index.html
 touch $projectName/templates/home.html
 
 # Contents of files
+
+cat > $projectName/.gitignore << EOF
+/venv
+**/__pycache__/
+EOF
+
 cat > $projectName/static/styles.css << EOF
 h1{
     color: orange;
@@ -84,10 +91,6 @@ cat > $projectName/templates/home.html << EOF
     <h1>Home Page</h1>
 </body>
 </html>
-h1{
-    color: orange;
-    background-color: blue;
-}
 EOF
 
 cat > $projectName/__init__.py << EOF
@@ -127,6 +130,7 @@ home = Blueprint('home',__name__)
 def routePoint():
     return render_template('home.html')
 EOF
+
 
 export FLASK_APP=$projectName
 export FLASK_ENV=development
